@@ -1,12 +1,21 @@
 server:
-  port: 8081
+  port: 8080
 spring:
+  application:
+    name: config-server
   cloud:
     config:
       server:
         git:
-          default-label: gateway
-          uri: https://github.com/jhonZevallos/proyecto-banco
-          search-paths: config-data
-  application:
-    name: config-service
+          uri: https://github.com/jhonZevallos/bootcamp-ntt
+          default-label: main
+          search-paths: config
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    refresh:
+      enabled: true
